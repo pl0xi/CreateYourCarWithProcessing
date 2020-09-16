@@ -28,9 +28,12 @@ class Car {
 
   void carWheels() {
     fill(0);
-    for (int i = -70; i <= 70; i += 140) {
-      rect(posX-i, posY+25, 40, 25);
-      rect(posX+i, posY-25, 40, 25);
+    for (int i = 0, c = -70, b = -25; i <= 3; i++, c = constrain(140+c, -70, 70), b = constrain(50-b, -25, 25)) {
+      if (c == 70 && i == 1) {
+        c = -70;
+        b = 25;
+      }
+      rect(posX+c, posY+b, 40, 25);
     }
   }
 
